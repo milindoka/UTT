@@ -1,0 +1,3 @@
+Few custom widgets :
+
+https://github.com/mfitzp/pyqt5-widgets

@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5 import QtWidgets 
 import random
  
  
@@ -9,11 +10,14 @@ class Splash(QWidget):
  
         # CREATE THE TABLE
         self.table = QTableView(self)  # SELECTING THE VIEW
-        self.table.setGeometry(0, 0, 575, 575)
+        self.table.setGeometry(0, 0, 575, 600)
+        self.table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.model = QStandardItemModel(self)  # SELECTING THE MODEL - FRAMEWORK THAT HANDLES QUERIES AND EDITS
         self.table.setModel(self.model)  # SETTING THE MODEL
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.populate()
+        self.table.resizeColumnsToContents()
+        
  
         self.table.doubleClicked.connect(self.on_click)
  
@@ -34,9 +38,9 @@ class Splash(QWidget):
         # VALUES WILL CONTAIN A LIST OF INT.
         # MODEL ONLY ACCEPTS STRINGS - MUST CONVERT.
         values = []
-        for i in range(10):
+        for i in range(11):
             sub_values = []
-            for i in range(4):
+            for i in range(6):
                 value = random.randrange(1, 100)
                 sub_values.append(value)
             values.append(sub_values)
