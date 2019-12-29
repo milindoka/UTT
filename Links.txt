@@ -1,3 +1,9 @@
 Few custom widgets :
 
 https://github.com/mfitzp/pyqt5-widgets
+
+Adding custom widgets to qlistwidget
+
+https://stackoverflow.com/questions/26199374/add-qwidget-to-qlistwidget
+
+https://stackoverflow.com/questions/25187444/pyqt-qlistwidget-custom-items
