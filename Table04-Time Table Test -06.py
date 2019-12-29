@@ -8,6 +8,7 @@ class EditButtonsWidget(QWidget):
     def __init__(self, parent=None):
         super(EditButtonsWidget,self).__init__(parent)
 
+
         # add your buttons
         layout = QVBoxLayout(self)
 
@@ -36,6 +37,13 @@ class CustomWidget(QWidget):
         layout.setSpacing(0)
         list = QListWidget()
         list.setMaximumHeight(100)
+
+
+        item2 = QListWidgetItem(list)
+        item_widget2 = EditButtonsWidget()
+        item2.setSizeHint(item_widget2.sizeHint())
+        list.addItem(item2)
+        list.setItemWidget(item2, item_widget2)
 
         item3 = QListWidgetItem(list)
         item_widget3 = EditButtonsWidget()
