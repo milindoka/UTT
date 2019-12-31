@@ -86,9 +86,14 @@ class LoadTable(QtWidgets.QTableWidget):
     def _addrow(self):
         rowcount = self.rowCount()
         self.insertRow(rowcount)
-        
         self.setCellWidget(rowcount,5, EditButtonsWidget())
         self.resizeRowsToContents()
+
+    @QtCore.pyqtSlot()
+    def _testrow(self):
+        self.setItem(0,0, QTableWidgetItem("Cell (0,0)"))
+        
+       
 
 
     @QtCore.pyqtSlot()
@@ -110,11 +115,12 @@ class ThirdTabLoads(QtWidgets.QWidget):
         delete_button.clicked.connect(table._removerow)
 
         test_button = QtWidgets.QPushButton("Test")
-        test_button.clicked.connect(table._addrow)
+        test_button.clicked.connect(table._testrow)
 
         button_layout = QtWidgets.QVBoxLayout()
         button_layout.addWidget(add_button, alignment=QtCore.Qt.AlignBottom)
         button_layout.addWidget(delete_button, alignment=QtCore.Qt.AlignTop)
+        button_layout.addWidget(test_button, alignment=QtCore.Qt.AlignTop)
 
 
         tablehbox = QtWidgets.QHBoxLayout()
